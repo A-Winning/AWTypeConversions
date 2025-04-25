@@ -26,7 +26,7 @@ std::pair<bool, int> Conversions::stringToInt(const std::string& str){
   return std::make_pair(isValid, (isValid ? result : 0));
 }
 
-std::pair<bool, double> Conversions::stringToDouble(const std::string str){
+std::pair<bool, double> Conversions::stringToDouble(const std::string& str){
   double result = 0;
   bool isValid = true;
   std::stringstream ss(str);
@@ -63,7 +63,7 @@ std::pair<bool, double> Conversions::stringToDouble(const std::string str){
   return std::make_pair(isValid, result);
 }
 
-std::pair<bool, std::string> Conversions::intToString(const int number){
+std::pair<bool, std::string> Conversions::intToString(const int& number){ // completely wrong needs rework
   std::string result = "";
   bool isValid = true;
   for (int i = number; i > 0; i%10){
