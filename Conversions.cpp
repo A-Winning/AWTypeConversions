@@ -54,3 +54,18 @@ std::pair<bool, float> Conversions::stringToFloat(const std::string str){
   }
   return std::make_pair(isValid, result);
 }
+
+std::pair<bool, std::string> Conversions::intToString(const int number){
+  std::string result = "";
+  bool isValid = true;
+  for (int i = number; i > 0; i%10){
+    auto it = Conversions::convertToCharMap.find(i/10);
+    if (it != Conversions::convertToCharMap.end()){
+      result += it->second;
+    }else{
+      isValid = false;
+      break;
+    }
+  }
+  return std::make_pair(isValid, result);
+}
