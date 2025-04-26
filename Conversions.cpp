@@ -53,7 +53,7 @@ std::pair<bool, double> Conversions::stringToDouble(const std::string& str){
     for (int i = 0; i < halves[1].size(); i++){
       auto it = convertToIntMap.find(halves[1][i]);
       if (it != convertToIntMap.end()){
-        result += static_cast<double>(1.00 /(pow(10,i+1)) * it->second);
+        result += 1.00 /pow(10,i+1) * it->second;
       }else{
         isValid = false;
         break;
