@@ -65,15 +65,9 @@ std::pair<bool, double> Conversions::stringToDouble(const std::string& str){
 
 std::pair<bool, std::string> Conversions::intToString(const int& number){ // completely wrong needs rework
   std::string result = "";
-  bool isValid = true;
-  for (int i = number; i > 0; i%10){
-    auto it = convertToCharMap.find(i/10);
-    if (it != convertToCharMap.end()){
-      result += it->second;
-    }else{
-      isValid = false;
-      break;
-    }
+  for (int i = number; i > 0; i=(i-i%10)/10){
+    auto it = convertToCharMap.find(i%10);
+    result = it->second + result;
   }
-  return std::make_pair(isValid, result);
+  return std::make_pair(true, result);
 }
